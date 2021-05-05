@@ -574,9 +574,9 @@ img {
   left: 0;
   width: 100%;
   z-index: 50;
-  background: rgba(29, 29, 31, 0.9);
-  -webkit-backdrop-filter: blur(5px);
-          backdrop-filter: blur(5px);
+  background: rgba(29, 29, 31, 0.72);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+          backdrop-filter: saturate(180%) blur(20px);
 }
 
 .top_nav_2 {
@@ -1770,6 +1770,14 @@ img {
 
 .megsafe_section {
   margin-top: 275px;
+}
+
+.megsafe_section .mag_title_left {
+  padding-right: 50px;
+}
+
+.megsafe_section .mag_title_right {
+  padding-left: 50px;
 }
 
 .megsafe_section .video_wrapper {

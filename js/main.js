@@ -79,10 +79,10 @@ $(document).ready(function () {
       ".top_title_box .black_overly_animation",
       {
         width: "0%",
-        duration: 1.2,
+        duration: 0.8,
         ease: Expo.easeInOut,
       },
-      "-=1.2"
+      "-=0.8"
     )
     .to(video_1, {
       y: -100,
@@ -939,17 +939,48 @@ $(document).ready(function () {
       onEnter: play_ratina_video,
       onEnterBack: play_ratina_video,
       onLeaveBack: play_ratina_video,
-      markers: true,
     },
   });
 
   function play_ratina_video() {
     $(ratina_video + " video").trigger("play");
   }
-  function reset_ratina_video() {
-    $(ratina_video + " video").attr("currentTime", 0);
-  }
   // Super Ratina Section End
+
+  // MegSafe Start
+  let def_scroll_trigger = {
+    trigger: ".megsafe_title_2",
+    start: "top 25%",
+    toggleActions: "play play play reset",
+  };
+  gsap.to(".mag_title_left", {
+    scrollTrigger: def_scroll_trigger,
+    paddingRight: 0,
+    duration: 0.5,
+    ease: Expo.easeInOut,
+  });
+  gsap.to(".mag_title_right", {
+    scrollTrigger: def_scroll_trigger,
+    paddingLeft: 0,
+    duration: 0.5,
+    ease: Expo.easeInOut,
+  });
+  gsap.to(".megsafe_video_1", {
+    scrollTrigger: {
+      trigger: ".megsafe_title_2",
+      start: "top 25%",
+      onEnter: play_megsafe_vid_1,
+      onLeaveBack: reset_megsafe_vid_1,
+    },
+  });
+
+  function play_megsafe_vid_1() {
+    $(".megsafe_video_1 video").trigger("play");
+  }
+  function reset_megsafe_vid_1() {
+    document.querySelector(".megsafe_video_1 video").currentTime = 0;
+  }
+  // MegSafe End
 
   function c(e) {
     console.log(e);
