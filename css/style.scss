@@ -1510,6 +1510,10 @@ img {
     padding-left: 50px;
   }
 
+  .megsafe_video_1 {
+    transform: translateY(80px);
+  }
+
   .video_wrapper {
     margin-top: 140px;
     @include flex();
@@ -1568,7 +1572,27 @@ img {
 }
 
 .ios_section {
-  margin-top: 275px;
+  margin-top: 195px;
+  padding-top: 80px;
+  min-height: calc(100vh + 35px);
+  max-height: calc(100vh + 35px);
+  // background: rgb(22, 22, 22);
+  // opacity: 0.1;
+  overflow: hidden;
+  position: relative;
+
+  .ios_overly_text_wrapper {
+    @include absAll();
+    @include flex();
+    background: rgba($color: #000000, $alpha: 0.6);
+    z-index: 5;
+
+    .text_box {
+      transform: translateY(80px);
+      opacity: 0;
+    }
+  }
+
   .ios_phones_wrapper {
     display: flex;
 
@@ -1576,6 +1600,13 @@ img {
       width: 33.333%;
       @include flex();
       flex-direction: column;
+
+      &.phone_box_1 {
+        transform: scale(2.5) translate(-100%, 0px);
+      }
+      &.phone_box_3 {
+        transform: scale(2.5) translate(100%, 0px);
+      }
 
       p {
         width: 247px;
@@ -1595,13 +1626,32 @@ img {
           width: 248px;
           height: 498px;
           position: relative;
-          overflow: hidden;
+          // overflow: hidden;
 
-          .phone_border_shape_box {
+          .phone_border_and_wallpaper_wrapper {
             width: 100%;
-            height: 100%;
+            height: 498px;
             position: relative;
-            z-index: 2;
+            // overflow: hidden;
+            transform: scale(7) translateY(-15px);
+            .phone_border_shape_box {
+              @include absAll();
+              z-index: 2;
+            }
+
+            // .phone_border_shape_box,
+            // .phone_wall_paper {
+            //   transform: scale(7) translateY(-15px);
+            // }
+            .phone_wall_paper {
+              @include absAll();
+              z-index: 1;
+              img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+              }
+            }
           }
 
           .phone_screen_wrapper {
@@ -1609,8 +1659,9 @@ img {
             width: 219px;
             top: 14px;
             left: 13px;
-            pointer-events: none;
+            // pointer-events: none;
             z-index: 1;
+            height: 100%;
             .phone_top_time_bar {
               position: absolute;
               top: 8px;
@@ -1619,13 +1670,6 @@ img {
               left: 18px;
             }
 
-            .phone_wall_paper {
-              img {
-                width: 100%;
-                height: auto;
-                object-fit: cover;
-              }
-            }
             .phone_widgets_grid {
               position: absolute;
               top: 40px;
@@ -1649,10 +1693,38 @@ img {
 
             .phone_bottom_part_wrapper {
               position: absolute;
-              bottom: 8px;
+              bottom: 28px;
               left: 8px;
               width: 206px;
-              height: 83px;
+            }
+
+            .clock_widget_box {
+              transform: scale(2.5) translate(-115%, -190%);
+            }
+            .camera_widget_box {
+              transform: scale(1.5) translate(-65%, -280%);
+            }
+            .fitness_widget_box {
+              transform: scale(2) translate(80%, -150%);
+            }
+            .tv_widget_box,
+            .stocks_widget_box {
+              transform: scale(1.8) translate(-215%, -310%);
+            }
+            .photos_widget_box {
+              transform: scale(2.2) translate(-200%, -190%);
+            }
+            .mail_widget_box {
+              transform: scale(7) translate(310%, -115%);
+            }
+            .files_widget_box {
+              transform: scale(5) translate(400%, -150%);
+            }
+            .appstore_widget_box {
+              transform: scale(9) translate(300%, 65%);
+            }
+            .weather_widget_box {
+              transform: scale(5) translate(435%, -50%);
             }
           }
         }
@@ -1690,3 +1762,19 @@ img {
 //   left: 50%;
 //   transform: translateY(-50%) translateX(-50%);
 // }
+
+.btn_box {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  @include flex();
+  justify-content: flex-start;
+  z-index: 9999999;
+  padding: 8px 10px;
+
+  button {
+    @extend .default_button;
+    margin: 0 8px;
+  }
+}

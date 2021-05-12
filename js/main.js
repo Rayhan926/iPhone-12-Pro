@@ -967,10 +967,36 @@ $(document).ready(function () {
   });
   gsap.to(".megsafe_video_1", {
     scrollTrigger: {
+      trigger: ".megsafe_video_1",
+      start: "top bottom",
+      end: "top 65%",
+      scrub: true,
+    },
+    y: 0,
+  });
+  gsap.to(".megsafe_video_1", {
+    scrollTrigger: {
       trigger: ".megsafe_title_2",
       start: "top 25%",
       onEnter: play_megsafe_vid_1,
       onLeaveBack: reset_megsafe_vid_1,
+    },
+  });
+
+  gsap.to(".megsafe_video_2", {
+    scrollTrigger: {
+      trigger: ".megsafe_video_2",
+      start: "top 50%",
+      onEnter: play_megsafe_vid_2,
+      onLeave: reset_megsafe_vid_2,
+    },
+  });
+  gsap.to(".megsafe_video_3", {
+    scrollTrigger: {
+      trigger: ".megsafe_video_3",
+      start: "top 45%",
+      onEnter: play_megsafe_vid_3,
+      onLeave: reset_megsafe_vid_3,
     },
   });
 
@@ -980,7 +1006,490 @@ $(document).ready(function () {
   function reset_megsafe_vid_1() {
     document.querySelector(".megsafe_video_1 video").currentTime = 0;
   }
+
+  function play_megsafe_vid_2() {
+    $(".megsafe_video_2 video").trigger("play");
+  }
+  function reset_megsafe_vid_2() {
+    document.querySelector(".megsafe_video_2 video").currentTime = 0;
+  }
+  function play_megsafe_vid_3() {
+    $(".megsafe_video_3 video").trigger("play");
+  }
+  function reset_megsafe_vid_3() {
+    document.querySelector(".megsafe_video_3 video").currentTime = 0;
+  }
   // MegSafe End
+
+  // Ultra Fast Wireless Section Start
+  gsap.to(".ultra_fast_wireless_section .black_overly_wrapper", {
+    scrollTrigger: {
+      trigger: ".ultra_fast_wireless_section .black_overly_wrapper",
+      start: opacity_0_start,
+      end: opacity_0_end,
+      scrub: true,
+    },
+    opacity: 0,
+  });
+  // Ultra Fast Wireless Section
+
+  // IOS Section Start
+  gsap.to(".ios_overly_text_wrapper .text_box", {
+    scrollTrigger: {
+      trigger: ".ios_overly_text_wrapper .text_box",
+      start: "top 80%",
+      end: "center center",
+      scrub: true,
+      // markers: true,
+    },
+    y: 0,
+    opacity: 1,
+  });
+
+  // Main IOS Section Pin To Top Start
+  // let mainProgress = 0;
+  gsap.to(".ios_section", {
+    scrollTrigger: {
+      trigger: ".ios_section",
+      start: "top -35px",
+      end: "+=1000",
+      pin: true,
+      scrub: true,
+      markers: true,
+      onUpdate: function (tl) {
+        let progress = tl.progress;
+
+        animate_center_phone_bg(progress);
+        animater_phone_1(progress);
+        animater_phone_3(progress);
+        animate_clock(progress);
+        animate_camera(progress);
+        animate_fitness(progress);
+        animate_tv(progress);
+        animate_stocks(progress);
+        animate_photos(progress);
+        animate_mail(progress);
+        animate_files(progress);
+        animate_appstore(progress);
+        animate_weather(progress);
+      },
+    },
+  });
+
+  function animate_center_phone_bg(e) {
+    let scale = cstm_anime({
+      progress: e,
+      start: 10,
+      end: 50,
+      from: 7,
+      to: 1,
+      scaleTo: 1,
+    });
+    let translate_y = cstm_anime({
+      progress: e,
+      start: 10,
+      end: 50,
+      from: -15,
+      to: 0,
+    });
+
+    add_css(".phone_border_and_wallpaper_wrapper", {
+      transform: `scale(${scale}) translateY(${translate_y}px)`,
+    });
+  }
+  function animate_clock(e) {
+    let scale = cstm_anime({
+      progress: e,
+      start: 40,
+      end: 50,
+      from: 2.5,
+      to: 1,
+      scaleTo: 1,
+    });
+    let translate_y = cstm_anime({
+      progress: e,
+      start: 40,
+      end: 50,
+      from: -190,
+      to: 0,
+    });
+    let translate_x = cstm_anime({
+      progress: e,
+      start: 40,
+      end: 50,
+      from: -115,
+      to: 0,
+    });
+
+    add_css(".clock_widget_box", {
+      transform: `scale(${scale}) translate(${translate_x}%, ${translate_y}%)`,
+    });
+  }
+  function animate_camera(e) {
+    let scale = cstm_anime({
+      progress: e,
+      start: 38,
+      end: 48,
+      from: 1.5,
+      to: 1,
+      scaleTo: 1,
+    });
+    let translate_x = cstm_anime({
+      progress: e,
+      start: 38,
+      end: 48,
+      from: -65,
+      to: 0,
+    });
+    let translate_y = cstm_anime({
+      progress: e,
+      start: 38,
+      end: 48,
+      from: -280,
+      to: 0,
+    });
+
+    add_css(".camera_widget_box", {
+      transform: `scale(${scale}) translate(${translate_x}%, ${translate_y}%)`,
+    });
+  }
+  function animate_fitness(e) {
+    let scale = cstm_anime({
+      progress: e,
+      start: 44,
+      end: 49,
+      from: 2,
+      to: 1,
+      scaleTo: 1,
+    });
+    let translate_x = cstm_anime({
+      progress: e,
+      start: 44,
+      end: 49,
+      from: 80,
+      to: 0,
+    });
+    let translate_y = cstm_anime({
+      progress: e,
+      start: 44,
+      end: 49,
+      from: -150,
+      to: 0,
+    });
+
+    add_css(".fitness_widget_box", {
+      transform: `scale(${scale}) translate(${translate_x}%, ${translate_y}%)`,
+    });
+  }
+  function animate_tv(e) {
+    let scale = cstm_anime({
+      progress: e,
+      start: 30,
+      end: 49,
+      from: 1.8,
+      to: 1,
+      scaleTo: 1,
+    });
+    let translate_x = cstm_anime({
+      progress: e,
+      start: 30,
+      end: 49,
+      from: -215,
+      to: 0,
+    });
+    let translate_y = cstm_anime({
+      progress: e,
+      start: 30,
+      end: 49,
+      from: -310,
+      to: 0,
+    });
+
+    add_css(".tv_widget_box", {
+      transform: `scale(${scale}) translate(${translate_x}%, ${translate_y}%)`,
+    });
+  }
+  function animate_stocks(e) {
+    let scale = cstm_anime({
+      progress: e,
+      start: 28,
+      end: 48,
+      from: 1.8,
+      to: 1,
+      scaleTo: 1,
+    });
+    let translate_x = cstm_anime({
+      progress: e,
+      start: 28,
+      end: 48,
+      from: -215,
+      to: 0,
+    });
+    let translate_y = cstm_anime({
+      progress: e,
+      start: 28,
+      end: 48,
+      from: -310,
+      to: 0,
+    });
+
+    add_css(".stocks_widget_box", {
+      transform: `scale(${scale}) translate(${translate_x}%, ${translate_y}%)`,
+    });
+  }
+  function animate_photos(e) {
+    let scale = cstm_anime({
+      progress: e,
+      start: 30,
+      end: 49,
+      from: 2.2,
+      to: 1,
+      scaleTo: 1,
+    });
+    let translate_x = cstm_anime({
+      progress: e,
+      start: 30,
+      end: 49,
+      from: -200,
+      to: 0,
+    });
+    let translate_y = cstm_anime({
+      progress: e,
+      start: 30,
+      end: 49,
+      from: -190,
+      to: 0,
+    });
+
+    add_css(".photos_widget_box", {
+      transform: `scale(${scale}) translate(${translate_x}%, ${translate_y}%)`,
+    });
+  }
+  function animate_mail(e) {
+    let scale = cstm_anime({
+      progress: e,
+      start: 15,
+      end: 48,
+      from: 7,
+      to: 1,
+      scaleTo: 1,
+    });
+    let translate_x = cstm_anime({
+      progress: e,
+      start: 15,
+      end: 48,
+      from: 310,
+      to: 0,
+    });
+    let translate_y = cstm_anime({
+      progress: e,
+      start: 15,
+      end: 48,
+      from: -115,
+      to: 0,
+    });
+
+    add_css(".mail_widget_box", {
+      transform: `scale(${scale}) translate(${translate_x}%, ${translate_y}%)`,
+    });
+  }
+  function animate_files(e) {
+    let scale = cstm_anime({
+      progress: e,
+      start: 28,
+      end: 50,
+      from: 5,
+      to: 1,
+      scaleTo: 1,
+    });
+    let translate_x = cstm_anime({
+      progress: e,
+      start: 28,
+      end: 50,
+      from: 400,
+      to: 0,
+    });
+    let translate_y = cstm_anime({
+      progress: e,
+      start: 28,
+      end: 50,
+      from: -150,
+      to: 0,
+    });
+
+    add_css(".files_widget_box", {
+      transform: `scale(${scale}) translate(${translate_x}%, ${translate_y}%)`,
+    });
+  }
+  function animate_appstore(e) {
+    let scale = cstm_anime({
+      progress: e,
+      start: 18,
+      end: 50,
+      from: 9,
+      to: 1,
+      scaleTo: 1,
+    });
+    let translate_x = cstm_anime({
+      progress: e,
+      start: 18,
+      end: 50,
+      from: 300,
+      to: 0,
+    });
+    let translate_y = cstm_anime({
+      progress: e,
+      start: 18,
+      end: 50,
+      from: 65,
+      to: 0,
+    });
+
+    add_css(".appstore_widget_box", {
+      transform: `scale(${scale}) translate(${translate_x}%, ${translate_y}%)`,
+    });
+  }
+  function animate_weather(e) {
+    let scale = cstm_anime({
+      progress: e,
+      start: 28,
+      end: 50,
+      from: 5,
+      to: 1,
+      scaleTo: 1,
+    });
+    let translate_x = cstm_anime({
+      progress: e,
+      start: 28,
+      end: 50,
+      from: 435,
+      to: 0,
+    });
+    let translate_y = cstm_anime({
+      progress: e,
+      start: 28,
+      end: 50,
+      from: -50,
+      to: 0,
+    });
+
+    add_css(".weather_widget_box", {
+      transform: `scale(${scale}) translate(${translate_x}%, ${translate_y}%)`,
+    });
+  }
+
+  /**
+   *
+   */
+
+  function animater_phone_1(e) {
+    let scale = cstm_anime({
+      progress: e,
+      start: 35,
+      end: 55,
+      from: 2.5,
+      to: 1,
+      scaleTo: 1,
+    });
+    let translate_y = cstm_anime({
+      progress: e,
+      start: 35,
+      end: 55,
+      from: -100,
+      to: 0,
+    });
+
+    add_css(".phone_box_1", {
+      transform: `scale(${scale}) translateX(${translate_y}%)`,
+    });
+  }
+  function animater_phone_3(e) {
+    let scale = cstm_anime({
+      progress: e,
+      start: 35,
+      end: 55,
+      from: 2.5,
+      to: 1,
+      scaleTo: 1,
+    });
+    let translate_y = cstm_anime({
+      progress: e,
+      start: 35,
+      end: 55,
+      from: 100,
+      to: 0,
+    });
+
+    add_css(".phone_box_3", {
+      transform: `scale(${scale}) translateX(${translate_y}%)`,
+    });
+  }
+
+  function cstm_anime(obj) {
+    let start = (obj.start ? obj.start : 0) / 100;
+    let end = (obj.end ? obj.end : 100) / 100;
+    let progress = obj.progress;
+    let from_TO_to_calc;
+    let to = obj.to;
+
+    if (progress >= start) {
+      let from = obj.from;
+      let scaleToAdd = obj.scaleTo ? obj.scaleTo : 0;
+      from = obj.scaleTo ? from - obj.scaleTo : from;
+      let diffrenceBetween = progress - start;
+      let animationRange = end - start;
+      let finalProgress = diffrenceBetween / animationRange;
+
+      from_TO_to_calc = (1 - finalProgress) * from + scaleToAdd;
+      if (diffrenceBetween >= animationRange) {
+        from_TO_to_calc = to;
+      }
+      return from_TO_to_calc;
+    } else {
+      // from_TO_to_calc = to;
+      // return from_TO_to_calc;
+      return false;
+    }
+  }
+  // Main IOS Section Pin To Top End
+
+  gsap.to(".ios_outer_animation_box", {
+    scrollTrigger: ios_trigger("+=20%"),
+    y: -80,
+    opacity: 0,
+  });
+  gsap.to(".ios_overly_text_wrapper", {
+    scrollTrigger: ios_trigger("+=20%"),
+    opacity: 0,
+    pointerEvents: "none",
+  });
+
+  function ios_trigger(endVal, markers) {
+    let m = markers ? markers : false;
+    return {
+      trigger: ".ios_section",
+      start: "top top",
+      end: endVal,
+      scrub: true,
+      markers: m,
+    };
+  }
+
+  $(".top_btn").click(function () {
+    $(window).scrollTop(0);
+    window.location.href = "";
+  });
+  $(".view_btn").click(function () {
+    let offsetTop = $(".ios_section").offset().top;
+    $(window).scrollTop(offsetTop - 80);
+    console.clear();
+  });
+
+  // IOS Section End
+
+  function add_css(elm, cssObj) {
+    $(elm).css(cssObj);
+  }
 
   function c(e) {
     console.log(e);
