@@ -1914,20 +1914,23 @@ img {
           flex-direction: column;
 }
 
-.ios_section .ios_phones_wrapper .phone_box.phone_box_1 {
-  -webkit-transform: scale(2.5) translate(-100%, 0px);
-          transform: scale(2.5) translate(-100%, 0px);
+.ios_section .ios_phones_wrapper .phone_box .phone_box_1 {
+  -webkit-transform: scale(2.5) translate(-130%, 0px);
+          transform: scale(2.5) translate(-130%, 0px);
 }
 
-.ios_section .ios_phones_wrapper .phone_box.phone_box_3 {
-  -webkit-transform: scale(2.5) translate(100%, 0px);
-          transform: scale(2.5) translate(100%, 0px);
+.ios_section .ios_phones_wrapper .phone_box .phone_box_3 {
+  -webkit-transform: scale(2.5) translate(130%, 0px);
+          transform: scale(2.5) translate(130%, 0px);
 }
 
 .ios_section .ios_phones_wrapper .phone_box p {
   width: 247px;
   margin: auto;
   margin-top: 20px;
+  opacity: 0;
+  -webkit-transform: translateY(80px);
+          transform: translateY(80px);
 }
 
 .ios_section .ios_phones_wrapper .phone_box:last-child {
@@ -1973,10 +1976,12 @@ img {
 
 .ios_section .ios_phones_wrapper .phone_box.middle_phone_box .all_content_wrapper .phone_border_and_wallpaper_wrapper .phone_wall_paper {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 98%;
+  height: 99%;
   z-index: 1;
 }
 
@@ -1987,6 +1992,26 @@ img {
      object-fit: cover;
 }
 
+.ios_section .ios_phones_wrapper .phone_box.middle_phone_box .all_content_wrapper .phone_border_and_wallpaper_wrapper .phone_bottom_part_wrapper {
+  position: absolute;
+  bottom: 13px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 206px;
+  z-index: 3;
+}
+
+.ios_section .ios_phones_wrapper .phone_box.middle_phone_box .all_content_wrapper .phone_border_and_wallpaper_wrapper .phone_top_time_bar {
+  position: absolute;
+  top: 20px;
+  width: 196px;
+  z-index: 3;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
 .ios_section .ios_phones_wrapper .phone_box.middle_phone_box .all_content_wrapper .phone_screen_wrapper {
   position: absolute;
   width: 219px;
@@ -1994,14 +2019,6 @@ img {
   left: 13px;
   z-index: 1;
   height: 100%;
-}
-
-.ios_section .ios_phones_wrapper .phone_box.middle_phone_box .all_content_wrapper .phone_screen_wrapper .phone_top_time_bar {
-  position: absolute;
-  top: 8px;
-  width: 196px;
-  z-index: 2;
-  left: 18px;
 }
 
 .ios_section .ios_phones_wrapper .phone_box.middle_phone_box .all_content_wrapper .phone_screen_wrapper .phone_widgets_grid {
@@ -2034,13 +2051,6 @@ img {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-}
-
-.ios_section .ios_phones_wrapper .phone_box.middle_phone_box .all_content_wrapper .phone_screen_wrapper .phone_bottom_part_wrapper {
-  position: absolute;
-  bottom: 28px;
-  left: 8px;
-  width: 206px;
 }
 
 .ios_section .ios_phones_wrapper .phone_box.middle_phone_box .all_content_wrapper .phone_screen_wrapper .clock_widget_box {
@@ -2087,6 +2097,31 @@ img {
 .ios_section .ios_phones_wrapper .phone_box.middle_phone_box .all_content_wrapper .phone_screen_wrapper .weather_widget_box {
   -webkit-transform: scale(5) translate(435%, -50%);
           transform: scale(5) translate(435%, -50%);
+}
+
+.ios_section .ios_phones_wrapper .phone_box.middle_phone_box .all_content_wrapper .phone_screen_wrapper .health_widget_box {
+  -webkit-transform: scale(6) translate(-450%, 95%);
+          transform: scale(6) translate(-450%, 95%);
+}
+
+.ios_section .ios_phones_wrapper .phone_box.middle_phone_box .all_content_wrapper .phone_screen_wrapper .home_widget_box {
+  -webkit-transform: scale(7) translate(-350%, 90%);
+          transform: scale(7) translate(-350%, 90%);
+}
+
+.ios_section .ios_phones_wrapper .phone_box.middle_phone_box .all_content_wrapper .phone_screen_wrapper .podcast_widget_box {
+  -webkit-transform: scale(2.5) translate(-280%, 320%);
+          transform: scale(2.5) translate(-280%, 320%);
+}
+
+.ios_section .ios_phones_wrapper .phone_box.middle_phone_box .all_content_wrapper .phone_screen_wrapper .photos_sml_widget_box {
+  -webkit-transform: scale(6) translate(-220%, 160%);
+          transform: scale(6) translate(-220%, 160%);
+}
+
+.ios_section .ios_phones_wrapper .phone_box.middle_phone_box .all_content_wrapper .phone_screen_wrapper .music_widget_box {
+  -webkit-transform: scale(2.9) translate(20%, 162%);
+          transform: scale(2.9) translate(20%, 162%);
 }
 
 .ios_section .anchor_center {

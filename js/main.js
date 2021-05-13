@@ -155,21 +155,6 @@ $(document).ready(function () {
   // First Paragraph Section End
 
   // Less Bezel More Screen Section Title Start
-  // let less_bg_ov = ".less_bezel_more_screen_section .black_overly_animation";
-  // gsap.to(less_bg_ov, {
-  //   scrollTrigger: {
-  //     trigger: ".less_bezel_more_screen_section .center_box",
-  //     toggleActions: "restart pause reverse pause",
-  //     scrub: true,
-  //     start: "top 80%",
-  //     end: "top 50%",
-  //     onUpdate: function (tl) {
-  //       setBackgroundOverlyPosition(tl.progress, less_bg_ov, 135);
-  //     },
-  //   },
-  //   duration: 1.5,
-  //   ease: Power0.easeInOut,
-  // });
   gsap.to(".less_bezel_more_screen_section .video_2_wrapper", {
     scrollTrigger: {
       trigger: ".less_bezel_more_screen_section .video_2_wrapper",
@@ -188,19 +173,20 @@ $(document).ready(function () {
       trigger: ".video_2_wrapper",
       start: "top center",
       toggleActions: "restart pause reverse pause",
-      onEnter: playVideo_2,
-      onEnterBack: playVideo_2,
-      onLeave: setVideoToStart_2,
-      onLeaveBack: setVideoToStart_2,
+      onEnter: () => {
+        play_video("#video_2");
+      },
+      onEnterBack: () => {
+        play_video("#video_2");
+      },
+      onLeave: () => {
+        reset_video("#video_2");
+      },
+      onLeaveBack: () => {
+        reset_video("#video_2");
+      },
     },
   });
-
-  function playVideo_2(index, target) {
-    $("#video_2").trigger("play");
-  }
-  function setVideoToStart_2() {
-    document.querySelector("#video_2").currentTime = 0;
-  }
 
   // Less Bezel More Screen Section Title End
 
@@ -210,10 +196,18 @@ $(document).ready(function () {
       trigger: ".compare_section",
       toggleActions: "restart pause reverse pause",
       start: "top 70%",
-      onEnter: playVideo_3,
-      onEnterBack: playVideo_3,
-      onLeave: setVideoToStart_3,
-      onLeaveBack: setVideoToStart_3,
+      onEnter: () => {
+        play_video("#video_3");
+      },
+      onEnterBack: () => {
+        play_video("#video_3");
+      },
+      onLeave: () => {
+        reset_video("#video_3");
+      },
+      onLeaveBack: () => {
+        reset_video("#video_3");
+      },
     },
   });
   gsap.to(".video_wrapper_3", {
@@ -265,13 +259,6 @@ $(document).ready(function () {
     duration: 0.5,
     ease: Power0.easeInOut,
   });
-
-  function setVideoToStart_3() {
-    document.querySelector("#video_3").currentTime = 0;
-  }
-  function playVideo_3() {
-    $("#video_3").trigger("play");
-  }
   // Compare Golden Iphone Section End
 
   // Kicks Glass Section Start
@@ -287,41 +274,6 @@ $(document).ready(function () {
     duration: 0.5,
     ease: Power0.easeInOut,
   });
-  // gsap.to(".kicks_title .black_overly_animation", {
-  //   scrollTrigger: {
-  //     trigger: ".kicks_title",
-  //     start: "top 60%",
-  //     end: "bottom 45%",
-  //     scrub: true,
-  //     onUpdate: function (tl) {
-  //       setBackgroundOverlyPosition(
-  //         tl.progress,
-  //         ".kicks_title .black_overly_animation",
-  //         135
-  //       );
-  //     },
-  //   },
-  //   duration: 0.5,
-  //   ease: Power0.easeInOut,
-  // });
-  // gsap.to(".kick_glass_section .gradient_text .black_overly_animation", {
-  //   scrollTrigger: {
-  //     trigger: ".kick_glass_section .gradient_text",
-  //     start: "bottom 75%",
-  //     end: "bottom 60%",
-  //     scrub: true,
-  //     onUpdate: function (tl) {
-  //       setBackgroundOverlyPosition(
-  //         tl.progress,
-  //         ".kick_glass_section .gradient_text .black_overly_animation",
-  //         45
-  //       );
-  //     },
-  //   },
-  //   duration: 0.5,
-  //   ease: Power0.easeInOut,
-  // });
-
   gsap.to(".kick_glass_section button", {
     scrollTrigger: {
       trigger: ".kick_glass_section button",
@@ -401,20 +353,20 @@ $(document).ready(function () {
       start: "top 90%",
       end: "bottom top",
       toggleActions: "restart pause reverse pause",
-      onEnter: playVideo_4,
-      onEnterBack: playVideo_4,
-      onLeave: setVideoToStart_4,
-      onLeaveBack: setVideoToStart_4,
+      onEnter: () => {
+        play_video(".finishing_touch_section video");
+      },
+      onEnterBack: () => {
+        play_video(".finishing_touch_section video");
+      },
+      onLeave: () => {
+        reset_video(".finishing_touch_section video");
+      },
+      onLeaveBack: () => {
+        reset_video(".finishing_touch_section video");
+      },
     },
   });
-
-  function playVideo_4() {
-    $(".finishing_touch_section video").trigger("play");
-  }
-  function setVideoToStart_4() {
-    document.querySelector(".finishing_touch_section video").currentTime = 0;
-  }
-
   gsap.to(".finishing_touch_section h2", {
     scrollTrigger: {
       trigger: ".finishing_touch_section h2",
@@ -440,23 +392,6 @@ $(document).ready(function () {
   // Finishing Touch Section End
 
   // Grid Section Start
-  // gsap.to(".grid_title_box .black_overly_animation", {
-  //   scrollTrigger: {
-  //     trigger: ".grid_title_box",
-  //     start: "top 55%",
-  //     end: "bottom 55%",
-  //     scrub: true,
-  //     onUpdate: function (tl) {
-  //       setBackgroundOverlyPosition(
-  //         tl.progress,
-  //         ".grid_title_box .black_overly_animation",
-  //         135
-  //       );
-  //     },
-  //   },
-  //   duration: 0.5,
-  //   ease: Power0.easeInOut,
-  // });
   gsap.to(".grid_long_desc", {
     scrollTrigger: {
       trigger: ".grid_long_desc",
@@ -547,20 +482,6 @@ $(document).ready(function () {
   // Grid Section End
 
   // Lider Section Start
-  // let lidar_overly =
-  //   ".lidar_scanner_section .title_wrapper .black_overly_animation";
-  // gsap.to(lidar_overly, {
-  //   scrollTrigger: {
-  //     trigger: ".lidar_scanner_section .title_wrapper",
-  //     start: "top 75%",
-  //     end: "top 55%",
-  //     scrub: true,
-  //     onUpdate: function (tl) {
-  //       setBackgroundOverlyPosition(tl.progress, lidar_overly, 135);
-  //     },
-  //   },
-  // });
-
   gsap.to(".video_wrapper_5", {
     scrollTrigger: {
       trigger: ".video_wrapper_5",
@@ -570,30 +491,18 @@ $(document).ready(function () {
       scrub: true,
 
       onEnter: function () {
-        document.querySelector(".video_wrapper_5 video").currentTime = 0;
-        $(".video_wrapper_5 video").trigger("play");
+        reset_video(".video_wrapper_5 video");
+        play_video(".video_wrapper_5 video");
       },
       onEnterBack: function () {
-        document.querySelector(".video_wrapper_5 video").currentTime = 0;
-        $(".video_wrapper_5 video").trigger("play");
+        reset_video(".video_wrapper_5 video");
+        play_video(".video_wrapper_5 video");
       },
     },
   });
   // Lider Section End
 
   // Pro Camera Section Start
-  // let pro_cam_overly = ".pro_camera_system_section .title_box .overly_1";
-  // gsap.to(pro_cam_overly, {
-  //   scrollTrigger: {
-  //     trigger: ".pro_camera_system_section .title_box",
-  //     start: "top 80%",
-  //     end: "bottom 75%",
-  //     scrub: true,
-  //     onUpdate: function (tl) {
-  //       setBackgroundOverlyPosition(tl.progress, pro_cam_overly, 135);
-  //     },
-  //   },
-  // });
   gsap.to(".pro_camera_system_section .big_bg_section", {
     scrollTrigger: {
       trigger: ".pro_camera_system_section .big_bg_section",
@@ -659,13 +568,6 @@ $(document).ready(function () {
           onUpdate: function (tl) {
             let scale = 0.2 * tl.progress + 0.8;
             let opacity = 0.3 * tl.progress + 0.7;
-
-            // if (tl.progress >= 1) {
-            //   setTimeout(() => {
-            //     refrestAll();
-            //   }, 200);
-            // }
-
             $(e).css({
               opacity: opacity,
               Transform: `scale(${scale})`,
@@ -793,19 +695,6 @@ $(document).ready(function () {
   // Apple Pro Raw End
 
   // Visison Recording Start
-  // let vision_overly = ".vision_recording_section .black_overly_animation";
-  // gsap.to(vision_overly, {
-  //   scrollTrigger: {
-  //     trigger: vision_overly,
-  //     start: "top 75%",
-  //     end: "top 45%",
-  //     scrub: true,
-  //     onUpdate: function (tl) {
-  //       setBackgroundOverlyPosition(tl.progress, vision_overly, 135);
-  //     },
-  //   },
-  // });
-
   gsap.to(".girl_video_gap", {
     scrollTrigger: {
       trigger: ".girl_video_gap",
@@ -835,21 +724,6 @@ $(document).ready(function () {
       },
     },
   });
-
-  // let allInArray_2 = gsap.utils.toArray(".op_0_to_1_y_2");
-  // allInArray_2.forEach((e) => {
-  //   gsap.to(e, {
-  //     scrollTrigger: {
-  //       trigger: e,
-  //       start: "top 95%",
-  //       end: "top 80%",
-  //       scrub: true,
-  //       markers: true,
-  //     },
-  //     opacity: 1,
-  //     y: 0,
-  //   });
-  // });
   // Visison Recording End
 
   // Movie Night
@@ -896,18 +770,6 @@ $(document).ready(function () {
   // Movie Night End
 
   // True Dept Camera Section Start
-  // let true_dept_overly = ".true_dept_camera_section .black_overly_animation";
-  // gsap.to(true_dept_overly, {
-  //   scrollTrigger: {
-  //     trigger: true_dept_overly,
-  //     start: "top 80%",
-  //     end: "top 50%",
-  //     scrub: true,
-  //     onUpdate: function (tl) {
-  //       setBackgroundOverlyPosition(tl.progress, true_dept_overly, 135);
-  //     },
-  //   },
-  // });
   gsap.to(".true_dept_camera_section .img_box", {
     scrollTrigger: {
       trigger: ".true_dept_camera_section .img_box",
@@ -978,8 +840,12 @@ $(document).ready(function () {
     scrollTrigger: {
       trigger: ".megsafe_title_2",
       start: "top 25%",
-      onEnter: play_megsafe_vid_1,
-      onLeaveBack: reset_megsafe_vid_1,
+      onEnter: () => {
+        play_video(".megsafe_video_1 video");
+      },
+      onLeaveBack: () => {
+        reset_video(".megsafe_video_1 video");
+      },
     },
   });
 
@@ -987,38 +853,26 @@ $(document).ready(function () {
     scrollTrigger: {
       trigger: ".megsafe_video_2",
       start: "top 50%",
-      onEnter: play_megsafe_vid_2,
-      onLeave: reset_megsafe_vid_2,
+      onEnter: () => {
+        play_video(".megsafe_video_2 video");
+      },
+      onLeave: () => {
+        reset_video(".megsafe_video_2 video");
+      },
     },
   });
   gsap.to(".megsafe_video_3", {
     scrollTrigger: {
       trigger: ".megsafe_video_3",
       start: "top 45%",
-      onEnter: play_megsafe_vid_3,
-      onLeave: reset_megsafe_vid_3,
+      onEnter: () => {
+        play_video(".megsafe_video_3 video");
+      },
+      onLeave: () => {
+        reset_video(".megsafe_video_3 video");
+      },
     },
   });
-
-  function play_megsafe_vid_1() {
-    $(".megsafe_video_1 video").trigger("play");
-  }
-  function reset_megsafe_vid_1() {
-    document.querySelector(".megsafe_video_1 video").currentTime = 0;
-  }
-
-  function play_megsafe_vid_2() {
-    $(".megsafe_video_2 video").trigger("play");
-  }
-  function reset_megsafe_vid_2() {
-    document.querySelector(".megsafe_video_2 video").currentTime = 0;
-  }
-  function play_megsafe_vid_3() {
-    $(".megsafe_video_3 video").trigger("play");
-  }
-  function reset_megsafe_vid_3() {
-    document.querySelector(".megsafe_video_3 video").currentTime = 0;
-  }
   // MegSafe End
 
   // Ultra Fast Wireless Section Start
@@ -1040,14 +894,12 @@ $(document).ready(function () {
       start: "top 80%",
       end: "center center",
       scrub: true,
-      // markers: true,
     },
     y: 0,
     opacity: 1,
   });
 
   // Main IOS Section Pin To Top Start
-  // let mainProgress = 0;
   gsap.to(".ios_section", {
     scrollTrigger: {
       trigger: ".ios_section",
@@ -1055,7 +907,6 @@ $(document).ready(function () {
       end: "+=1000",
       pin: true,
       scrub: true,
-      markers: true,
       onUpdate: function (tl) {
         let progress = tl.progress;
 
@@ -1072,6 +923,25 @@ $(document).ready(function () {
         animate_files(progress);
         animate_appstore(progress);
         animate_weather(progress);
+        animate_health(progress);
+        animate_home(progress);
+        animate_podcast(progress);
+        animate_photos_sml(progress);
+        animate_music(progress);
+        animate_bottom_bar(progress);
+        animate_phone_text_1(progress);
+        animate_phone_text_2(progress);
+        animate_phone_text_3(progress);
+        // ios_section_turn_off_overflow(progress)
+        if (progress > 0.53) {
+          add_css(".ios_section", {
+            overflow: "visible",
+          });
+        } else {
+          add_css(".ios_section", {
+            overflow: "hidden",
+          });
+        }
       },
     },
   });
@@ -1377,6 +1247,239 @@ $(document).ready(function () {
       transform: `scale(${scale}) translate(${translate_x}%, ${translate_y}%)`,
     });
   }
+  function animate_health(e) {
+    let scale = cstm_anime({
+      progress: e,
+      start: 22,
+      end: 52,
+      from: 6,
+      to: 1,
+      scaleTo: 1,
+    });
+    let translate_x = cstm_anime({
+      progress: e,
+      start: 22,
+      end: 52,
+      from: -450,
+      to: 0,
+    });
+    let translate_y = cstm_anime({
+      progress: e,
+      start: 22,
+      end: 52,
+      from: 95,
+      to: 0,
+    });
+
+    add_css(".health_widget_box", {
+      transform: `scale(${scale}) translate(${translate_x}%, ${translate_y}%)`,
+    });
+  }
+  function animate_home(e) {
+    let scale = cstm_anime({
+      progress: e,
+      start: 18,
+      end: 50,
+      from: 7,
+      to: 1,
+      scaleTo: 1,
+    });
+    let translate_x = cstm_anime({
+      progress: e,
+      start: 18,
+      end: 50,
+      from: -350,
+      to: 0,
+    });
+    let translate_y = cstm_anime({
+      progress: e,
+      start: 18,
+      end: 50,
+      from: 90,
+      to: 0,
+    });
+
+    add_css(".home_widget_box", {
+      transform: `scale(${scale}) translate(${translate_x}%, ${translate_y}%)`,
+    });
+  }
+  function animate_podcast(e) {
+    let scale = cstm_anime({
+      progress: e,
+      start: 35,
+      end: 51,
+      from: 2.5,
+      to: 1,
+      scaleTo: 1,
+    });
+    let translate_x = cstm_anime({
+      progress: e,
+      start: 35,
+      end: 51,
+      from: -280,
+      to: 0,
+    });
+    let translate_y = cstm_anime({
+      progress: e,
+      start: 35,
+      end: 51,
+      from: 320,
+      to: 0,
+    });
+
+    add_css(".podcast_widget_box", {
+      transform: `scale(${scale}) translate(${translate_x}%, ${translate_y}%)`,
+    });
+  }
+  function animate_photos_sml(e) {
+    let scale = cstm_anime({
+      progress: e,
+      start: 28,
+      end: 51,
+      from: 6,
+      to: 1,
+      scaleTo: 1,
+    });
+    let translate_x = cstm_anime({
+      progress: e,
+      start: 28,
+      end: 51,
+      from: -220,
+      to: 0,
+    });
+    let translate_y = cstm_anime({
+      progress: e,
+      start: 28,
+      end: 51,
+      from: 160,
+      to: 0,
+    });
+
+    add_css(".photos_sml_widget_box", {
+      transform: `scale(${scale}) translate(${translate_x}%, ${translate_y}%)`,
+    });
+  }
+  function animate_music(e) {
+    let scale = cstm_anime({
+      progress: e,
+      start: 40,
+      end: 51,
+      from: 2.9,
+      to: 1,
+      scaleTo: 1,
+    });
+    let translate_x = cstm_anime({
+      progress: e,
+      start: 40,
+      end: 51,
+      from: 20,
+      to: 0,
+    });
+    let translate_y = cstm_anime({
+      progress: e,
+      start: 40,
+      end: 51,
+      from: 162,
+      to: 0,
+    });
+
+    add_css(".music_widget_box", {
+      transform: `scale(${scale}) translate(${translate_x}%, ${translate_y}%)`,
+    });
+  }
+  function animate_bottom_bar(e) {
+    let opacity_animate = cstm_anime({
+      progress: e,
+      start: 35,
+      end: 50,
+      from: 0,
+      to: 1,
+    });
+
+    add_css(".phone_bottom_part_wrapper", {
+      opacity: opacity_animate,
+    });
+  }
+  function animate_phone_text_1(e) {
+    let opacity_animate = cstm_anime({
+      progress: e,
+      start: 53,
+      end: 68,
+      from: 0,
+      to: 1,
+    });
+
+    let translate_y = cstm_anime({
+      progress: e,
+      start: 53,
+      end: 66,
+      from: 80,
+      to: 0,
+    });
+
+    add_css(".phone_text_1", {
+      opacity: opacity_animate,
+      transform: `translateY(${translate_y}px)`,
+    });
+  }
+  function animate_phone_text_2(e) {
+    let opacity_animate = cstm_anime({
+      progress: e,
+      start: 65,
+      end: 80,
+      from: 0,
+      to: 1,
+    });
+
+    let translate_y = cstm_anime({
+      progress: e,
+      start: 65,
+      end: 80,
+      from: 80,
+      to: 0,
+    });
+
+    add_css(".phone_text_2", {
+      opacity: opacity_animate,
+      transform: `translateY(${translate_y}px)`,
+    });
+  }
+  function animate_phone_text_3(e) {
+    let opacity_animate = cstm_anime({
+      progress: e,
+      start: 77,
+      end: 100,
+      from: 0,
+      to: 1,
+    });
+
+    let translate_y = cstm_anime({
+      progress: e,
+      start: 77,
+      end: 100,
+      from: 80,
+      to: 0,
+    });
+
+    add_css(".phone_text_3", {
+      opacity: opacity_animate,
+      transform: `translateY(${translate_y}px)`,
+    });
+  }
+  // function ios_section_turn_off_overflow(e){
+  //   let off_overflow = cstm_anime({
+  //     progress: e,
+  //     start: 77,
+  //     end: 100,
+  //     from: 80,
+  //     to: 0,
+  //   });
+
+  //   add_css(".phone_text_3", {
+  //     opacity: opacity_animate,
+  //     transform: `translateY(${translate_y}px)`,
+  //   });
+  // }
 
   /**
    *
@@ -1395,7 +1498,7 @@ $(document).ready(function () {
       progress: e,
       start: 35,
       end: 55,
-      from: -100,
+      from: -130,
       to: 0,
     });
 
@@ -1416,7 +1519,7 @@ $(document).ready(function () {
       progress: e,
       start: 35,
       end: 55,
-      from: 100,
+      from: 130,
       to: 0,
     });
 
@@ -1426,29 +1529,29 @@ $(document).ready(function () {
   }
 
   function cstm_anime(obj) {
+    let from_TO_to_calc;
     let start = (obj.start ? obj.start : 0) / 100;
     let end = (obj.end ? obj.end : 100) / 100;
     let progress = obj.progress;
-    let from_TO_to_calc;
     let to = obj.to;
+    let from = obj.from;
+    from = obj.scaleTo ? from - obj.scaleTo : from;
 
     if (progress >= start) {
-      let from = obj.from;
       let scaleToAdd = obj.scaleTo ? obj.scaleTo : 0;
-      from = obj.scaleTo ? from - obj.scaleTo : from;
       let diffrenceBetween = progress - start;
       let animationRange = end - start;
       let finalProgress = diffrenceBetween / animationRange;
-
-      from_TO_to_calc = (1 - finalProgress) * from + scaleToAdd;
-      if (diffrenceBetween >= animationRange) {
-        from_TO_to_calc = to;
+      if (from == 0 && to == 1) {
+        from_TO_to_calc = finalProgress;
+      } else {
+        from_TO_to_calc = (1 - finalProgress) * from + scaleToAdd;
       }
+      if (diffrenceBetween >= animationRange) from_TO_to_calc = to;
       return from_TO_to_calc;
     } else {
-      // from_TO_to_calc = to;
-      // return from_TO_to_calc;
-      return false;
+      from_TO_to_calc = obj.from;
+      return from_TO_to_calc;
     }
   }
   // Main IOS Section Pin To Top End
@@ -1464,14 +1567,12 @@ $(document).ready(function () {
     pointerEvents: "none",
   });
 
-  function ios_trigger(endVal, markers) {
-    let m = markers ? markers : false;
+  function ios_trigger(endVal) {
     return {
       trigger: ".ios_section",
       start: "top top",
       end: endVal,
       scrub: true,
-      markers: m,
     };
   }
 
@@ -1522,25 +1623,18 @@ $(document).ready(function () {
     });
   }
 
-  // $(document).dblclick(function () {
-  //   gsap.to(".top_nav_1 ul li", {
-  //     scale: 0.2,
-  //     opacity: 0,
-  //     duration: 0.18,
-  //     ease: Power0.easeInOut,
-  //     stagger: -0.08,
-  //     loop: true,
-  //   });
-  // });
-
-  // function setDefaultBoxShadow() {}
   set_btn_bg_positon(
     document.querySelector(".wide_btn").getBoundingClientRect(),
     true
   );
 
   // Reusabel Gsap Start
-
+  function reset_video(elm, setTo) {
+    document.querySelector(elm).currentTime = setTo ? setTo : 0;
+  }
+  function play_video(elm) {
+    $(elm).trigger("play");
+  }
   let allBlackOverly = gsap.utils.toArray(".each_black_overly");
   allBlackOverly.forEach((e) => {
     let start = $(e).attr("data-start") || "top 80%";
