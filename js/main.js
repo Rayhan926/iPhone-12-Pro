@@ -79,10 +79,10 @@ $(document).ready(function () {
       ".top_title_box .black_overly_animation",
       {
         width: "0%",
-        duration: 0.8,
+        duration: 1.2,
         ease: Expo.easeInOut,
       },
-      "-=0.8"
+      "-=1.2"
     )
     .to(video_1, {
       y: -100,
@@ -171,7 +171,7 @@ $(document).ready(function () {
   gsap.to(".video_2_wrapper", {
     scrollTrigger: {
       trigger: ".video_2_wrapper",
-      start: "top center",
+      start: "top 65%",
       toggleActions: "restart pause reverse pause",
       onEnter: () => {
         play_video("#video_2");
@@ -1466,25 +1466,6 @@ $(document).ready(function () {
       transform: `translateY(${translate_y}px)`,
     });
   }
-  // function ios_section_turn_off_overflow(e){
-  //   let off_overflow = cstm_anime({
-  //     progress: e,
-  //     start: 77,
-  //     end: 100,
-  //     from: 80,
-  //     to: 0,
-  //   });
-
-  //   add_css(".phone_text_3", {
-  //     opacity: opacity_animate,
-  //     transform: `translateY(${translate_y}px)`,
-  //   });
-  // }
-
-  /**
-   *
-   */
-
   function animater_phone_1(e) {
     let scale = cstm_anime({
       progress: e,
@@ -1554,7 +1535,6 @@ $(document).ready(function () {
       return from_TO_to_calc;
     }
   }
-  // Main IOS Section Pin To Top End
 
   gsap.to(".ios_outer_animation_box", {
     scrollTrigger: ios_trigger("+=20%"),
@@ -1575,13 +1555,106 @@ $(document).ready(function () {
       scrub: true,
     };
   }
+  // Main IOS Section Pin To Top End
+
+  // Privacy Section Start
+
+  gsap.to(".privacy_section", {
+    scrollTrigger: {
+      trigger: ".privacy_section",
+      start: "top 55%",
+      end: "center center",
+      scrub: true,
+      onUpdate: function (tl) {
+        let progress = tl.progress;
+        animate_privacy_icon(progress);
+        animate_privacy_text(progress);
+      },
+    },
+  });
+
+  function animate_privacy_text(progress) {
+    let obj = [
+      "P...................",
+      "Pr..................",
+      "Pri.................",
+      "Priv................",
+      "Priva...............",
+      "Privac..............",
+      "Privacy.............",
+      "Privacy ............",
+      "Privacy i...........",
+      "Privacy is..........",
+      "Privacy is .........",
+      "Privacy is b........",
+      "Privacy is bu.......",
+      "Privacy is bui......",
+      "Privacy is buil.....",
+      "Privacy is built....",
+      "Privacy is built ...",
+      "Privacy is built i..",
+      "Privacy is built in.",
+      "Privacy is built in.",
+    ];
+    let arrayIndex = (progress * 100) / 5;
+    let finalIndex = (arrayIndex - 1).toFixed(0);
+    if (finalIndex < 0) {
+      $(".privacy_section h2").text("....................");
+    } else {
+      $(".privacy_section h2").text(obj[finalIndex]);
+    }
+  }
+
+  function animate_privacy_icon(progress) {
+    let bgPosition = [
+      "0px 0px",
+      "-42px 0px",
+      "-84px 0px",
+      "-126px 0px",
+      "-168px 0px",
+      "-210px 0px",
+      "-252px 0px",
+      "-294px 0px",
+      "-336px 0px",
+      "-378px 0px",
+      "-420px 0px",
+      "-462px 0px",
+      "0px -56px",
+      "-42px -56px",
+      "-84px -56px",
+      "-126px -56px",
+      "-168px -56px",
+      "-210px -56px",
+      "-252px -56px",
+      "-294px -56px",
+      "-336px -56px",
+      "-378px -56px",
+      "-420px -56px",
+      "-462px -56px",
+      "0px -112px",
+      "-42px -112px",
+      "-84px -112px",
+      "-126px -112px",
+      "-168px -112px",
+      "-210px -112px",
+      "-252px -112px",
+      "-294px -112px",
+      "-336px -112px",
+      "-378px -112px",
+    ];
+    let calc = ((progress * 100) / 2.9411).toFixed(0);
+    $(".apple_lock_img_box").css({
+      backgroundPosition: bgPosition[calc],
+    });
+  }
+  // Privacy Section End
 
   $(".top_btn").click(function () {
     $(window).scrollTop(0);
     window.location.href = "";
   });
   $(".view_btn").click(function () {
-    let offsetTop = $(".ios_section").offset().top;
+    let offsetTop = $(".privacy_section").offset().top;
     $(window).scrollTop(offsetTop - 80);
     console.clear();
   });
@@ -1602,7 +1675,6 @@ $(document).ready(function () {
       background: `linear-gradient(${rotateVal}deg, transparent ${transVal}%, #000 ${darkerVal}%)`,
     });
   }
-
   function setGridBoxShadow(percentageVal, elm) {
     let getShadowInPixel = (percentageVal.progress * 100) / 2;
     if (getShadowInPixel < 25) {
